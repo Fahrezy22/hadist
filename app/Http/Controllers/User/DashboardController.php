@@ -11,4 +11,8 @@ class DashboardController extends Controller
     {
         return view('Hadist.Dashboard');
     }
+    public function list()
+    {
+        return view('Hadist.List_hadist');
+    }
 }
