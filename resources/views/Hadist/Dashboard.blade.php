@@ -117,5 +117,7 @@
             </p>
         </div>
     </div>
+    <h3>Apa Itu Hadist?</h3><hr>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis provident aliquam repellendus laboriosam doloremque quas, quod debitis sapiente a porro ex nesciunt. Ipsam, tempore incidunt! Minus repellat in quibusdam dolores!</p>
 </div>
 @endsection
