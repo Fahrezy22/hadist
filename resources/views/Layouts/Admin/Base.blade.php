@@ -5,14 +5,15 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Skydash Admin</title>
+  <title>Hadist | Admin</title>
+  <meta name="csrf-token" content="{{ csrf_token() }}">
 
   @include('Layouts.Admin.Styles')
-  
+
 </head>
 <body>
   <div class="container-scroller">
-
+    @include('sweetalert::alert')
     @include('Layouts.Admin.Navbar')
     <!-- partial -->
     <div class="container-fluid page-body-wrapper">
@@ -47,12 +48,13 @@
           </div>
           <div class="d-sm-flex justify-content-center justify-content-sm-between">
           </div>
-        </footer> 
+        </footer>
       </div>
-    </div>   
+    </div>
   </div>
 
   @include('Layouts.Admin.Scripts')
+  @yield('js')
 
 </body>
 

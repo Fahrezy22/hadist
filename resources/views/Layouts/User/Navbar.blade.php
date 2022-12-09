@@ -8,7 +8,7 @@
             </button>
             <button class="topbar-toggler more"><i class="fa fa-user"></i></button>
             <!-- Logo Header -->
-            <a href="index-2.html" class="logo d-flex align-items-center">
+            <a href="{{route('user.hadist')}}" class="logo d-flex align-items-center">
                 <img src="{{asset('static/user/img/quran.png')}}" alt="navbar brand" class="navbar-brand" style="width: 30px">
                 <b class="text-light">SIHADIST</b>
             </a>
@@ -26,13 +26,13 @@
                                 <i class="fa fa-search"></i>
                             </a>
                         </li>
-                        
+
                         <li class="nav-item">
                             <a href="{{route('user.hadist')}}" class="nav-link quick-sidebar-toggler">
                                 <i class="fa-xl fa fa-home"></i>
                             </a>
                         </li>
-                        <li class="nav-item dropdown hidden-caret">
+                        {{-- <li class="nav-item dropdown hidden-caret">
                             <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false">
                                 <div class="avatar-sm">
                                     <img src="static/user/img/profile.jpg" alt="..." class="avatar-img rounded-circle">
@@ -47,7 +47,7 @@
                                     </li>
                                 </div>
                             </ul>
-                        </li>
+                        </li> --}}
                     </ul>
                 </div>
             </nav>

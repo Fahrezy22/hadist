@@ -3,16 +3,29 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\Hadist;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
     public function index()
     {
-        return view('Hadist.Dashboard');
+        $data = Hadist::latest()->paginate(6);
+        return view('Hadist.Dashboard')->with('data', $data);
     }
-    public function list()
+
+    public function search(Request $request)
     {
-        return view('Hadist.List_hadist');
+        $data = Hadist::where('theme','like',"%".$request->search."%")
+		->paginate(9);
+
+        return view('Hadist.List_hadist')->with('data', $data);
+    }
+
+    public function detail($id)
+    {
+        $data = Hadist::find($id);
+
+        return view('Hadist.Detail_hadist')->with('data', $data);
     }
 }

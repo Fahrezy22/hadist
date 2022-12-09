@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class DetailHadistController extends Controller
 {
-    public function index()
+    public function index($id)
     {
         return view('Hadist.Detail_hadist');
     }
