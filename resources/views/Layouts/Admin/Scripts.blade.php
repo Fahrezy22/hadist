@@ -11,6 +11,7 @@
 <script src="{{asset('static/admin/js/dashboard.js')}}"></script>
 <script src="{{asset('static/admin/js/Chart.roundedBarCharts.js')}}"></script>
 <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
   $(document).ready(function () {
       $('#datatable').DataTable();

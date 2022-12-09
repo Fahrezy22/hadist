@@ -4,15 +4,14 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="float-left mt-2"><b>Data Hadist</b></h4>
-                    <button id="create" class="btn btn-primary float-right">Tambah Data Hadist</button>
+                    <h4 class="float-left mt-2"><b>Data Category</b></h4>
+                    <button id="create" class="btn btn-primary float-right">Tambah Data Category</button>
                 </div>
                 <div class="card-body">
                     <table id="datatables" class="table table-striped">
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Perawi</th>
                                 <th>Kategori</th>
                                 <th>Aksi</th>
                             </tr>
@@ -23,7 +22,6 @@
                         <tfoot>
                             <tr>
                                 <th>No</th>
-                                <th>Perawi</th>
                                 <th>Kategori</th>
                                 <th>Aksi</th>
                             </tr>
@@ -33,7 +31,7 @@
             </div>
         </div>
     </div>
-    @include('Admin.Modal.Hadist')
+    @include('Admin.Modal.Category')
 @endsection
 
 @section('js')
@@ -52,7 +50,7 @@
         processing: true,
         serverSide: true,
         ajax: {
-            url:  '/admin/hadist',
+            url:  '/admin/category',
             type: 'GET'
         },
         columns: [{
@@ -60,12 +58,8 @@
                 name: 'DT_RowIndex',
             },
             {
-                data: 'narator',
-                name: 'narator',
-            },
-            {
-                data: 'kategori',
-                name: 'kategori',
+                data: 'name',
+                name: 'name',
             },
             {
                 data: 'action',
@@ -89,19 +83,13 @@
 
     $('body').on('click', '.editItem', function () {
         var Item_id = $(this).data('id');
-        $.get("/admin/hadist" + '/' + Item_id + '/edit', function (data) {
+        $.get("/admin/category" + '/' + Item_id + '/edit', function (data) {
             $('#modelheader').html("Edit Data");
             $('#simpan').val("edit-user");
             $('#univModal').modal('show');
             $('#id').val(data.id);
-            $('#form-input').attr('action', '{{route('hadist.update')}}');
-            $('#category_id').val(data.category_id);
-            $('#narator').val(data.narator);
-            $('#arab').val(data.arab);
-            $('#latin').val(data.latin);
-            $('#translation').val(data.translation);
-            $('#type').val(data.type);
-            $('#desc').val(data.desc);
+            $('#name').val(data.name);
+            $('#code').val(data.code);
         })
     });
 
@@ -111,7 +99,7 @@
 
         $.ajax({
             data: $('#ItemForm').serialize(),
-            url: "/admin/hadist",
+            url: "/admin/category",
             type: "POST",
             dataType: 'json',
             success: function (data) {
@@ -157,7 +145,7 @@ function deleteConfirmation(id, name) {
 
                 $.ajax({
                     type: 'POST',
-                    url: '/admin/hadist/destroy/'+id,
+                    url: '/admin/category/destroy/'+id,
                     data: {
                         _token: CSRF_TOKEN
                     },
